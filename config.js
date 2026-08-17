@@ -3,7 +3,7 @@
 
 const IEAB_CONFIG = {
   canal: "https://www.youtube.com/@IEABLive",
-  live: "https://www.youtube.com/@IEABLive/live",
+  live: "https://www.youtube.com/@IEABLive/streams",
   whatsapp: "", // Opcional: coloque aqui o link do WhatsApp da igreja
   horarios: {
     abertura: 0,          // 19:00 - 0:00
