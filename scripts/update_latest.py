@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import json
 import re
-import sys
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -19,6 +18,7 @@ def baixar_url(url):
             "User-Agent": "Mozilla/5.0"
         }
     )
+
     with urllib.request.urlopen(req, timeout=30) as response:
         return response.read().decode("utf-8", errors="ignore")
 
@@ -56,9 +56,24 @@ def obter_ultimo_video_por_rss(channel_id):
     if entry is None:
         raise RuntimeError("RSS do YouTube nao retornou videos")
 
-    title = entry.findtext("atom:title", default="Ultima transmissao IEAB Live", namespaces=ns)
-    video_id = entry.findtext("yt:videoId", default="", namespaces=ns)
-    published = entry.findtext("atom:published", default="", namespaces=ns)
+    title = entry.findtext(
+        "atom:title",
+        default="Ultima transmissao IEAB Live",
+        namespaces=ns
+    )
+
+    video_id = entry.findtext(
+        "yt:videoId",
+        default="",
+        namespaces=ns
+    )
+
+    published = entry.findtext(
+        "atom:published",
+        default="",
+        namespaces=ns
+    )
+
     link = entry.find("atom:link", ns)
 
     if link is not None and link.get("href"):
@@ -80,10 +95,12 @@ def obter_ultimo_video_por_rss(channel_id):
 
 def escrever_json(data):
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+
     OUTPUT.write_text(
         json.dumps(data, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8"
     )
+
     print(json.dumps(data, ensure_ascii=False, indent=2))
 
 
@@ -109,4 +126,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-`
