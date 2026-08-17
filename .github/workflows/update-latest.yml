@@ -1,1 +1,35 @@
 
+name: Update latest IEAB transmission
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Atualiza a cada 30 minutos
+    - cron: "*/30 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install yt-dlp
+        run: python -m pip install --upgrade yt-dlp
+
+      - name: Update latest transmission JSON
+        run: python scripts/update_latest.py
+
+      - name: Commit changes if needed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update latest IEAB transmission"
+          file_pattern: data/latest.json
