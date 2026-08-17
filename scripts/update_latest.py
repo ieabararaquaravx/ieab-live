@@ -20,17 +20,37 @@ def run_ytdlp(url):
         "--no-warnings",
         url,
     ]
-    completed = subprocess.run(cmd, capture_output=True, text=True, check=True)
-    lines = [line.strip() for line in completed.stdout.splitlines() if line.strip()]
+
+    completed = subprocess.run(
+        cmd,
+        capture_output=True,
+        text=True,
+        check=True
+    )
+
+    lines = [
+        line.strip()
+        for line in completed.stdout.splitlines()
+        if line.strip()
+    ]
+
     if not lines:
         raise RuntimeError("yt-dlp nao retornou videos")
+
     return json.loads(lines[0])
 
 
 def main():
     video = run_ytdlp(CHANNEL_STREAMS_URL)
+
     video_id = video.get("id", "")
-    webpage_url = video.get("webpage_url") or (f"https://www.youtube.com/watch?v={video_id}" if video_id else CHANNEL_STREAMS_URL)
+    webpage_url = video.get("webpage_url")
+
+    if not webpage_url:
+        if video_id:
+            webpage_url = f"https://www.youtube.com/watch?v={video_id}"
+        else:
+            webpage_url = CHANNEL_STREAMS_URL
 
     data = {
         "url": webpage_url,
@@ -42,8 +62,12 @@ def main():
     }
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "
-", encoding="utf-8")
+
+    OUTPUT.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8"
+    )
+
     print(json.dumps(data, ensure_ascii=False, indent=2))
 
 
