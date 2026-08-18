@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 CHANNEL_URL = "https://www.youtube.com/@IEABLive"
-FALLBACK_URL = "https://www.youtube.com/@IEABLive/stream"
+FALLBACK_URL = "https://www.youtube.com/@IEABLive/streams"
 OUTPUT = Path("data/latest.json")
 
 
