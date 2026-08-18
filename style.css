@@ -528,3 +528,52 @@ body.quarta .eyebrow { color: var(--gold); }
   border: 1px solid rgba(6, 27, 58, .10);
   background: #ffffff;
 }
+
+
+/* V3.8 - QR Code Pix maior e responsivo */
+.offering-box {
+  margin-top: 20px;
+  padding: 18px 14px 20px;
+  background: #ffffff;
+  border: 1px solid rgba(183, 123, 32, .20);
+  border-radius: 18px;
+  box-shadow: 0 8px 18px rgba(6, 27, 58, .06);
+  text-align: center;
+}
+
+.offering-title {
+  color: var(--navy);
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.pix-image {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid rgba(6, 27, 58, .10);
+  background: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .pix-image {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 620px) {
+  .pix-image {
+    max-width: 100%;
+  }
+
+  .offering-box {
+    padding: 16px 12px 18px;
+  }
+
+  .offering-title {
+    font-size: 19px;
+  }
+}
