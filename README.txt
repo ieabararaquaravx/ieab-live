@@ -37,3 +37,13 @@ V3.4 - Ajuste solicitado do logo e ícones sociais
 - Logo da chama posicionado no canto inferior esquerdo do banner principal.
 - Removido o encaixe anterior do logo dentro do texto.
 - Links sociais usam arquivos SVG com as marcas visuais de YouTube, Facebook e Instagram.
+
+
+V3.5 - Cabeçalho limpo e botão de mapa
+
+- Removida totalmente a chama/logo do topo.
+- Mantida a mesma distribuição de painéis: banner superior, painel principal à esquerda e painel lateral à direita.
+- Botão "📺 Transmissão do canal" alterado para "📺 Transmissões".
+- Botão "📍 Araraquara - SP" alterado para "📍 Como chegar" com link para o Google Maps.
+- Mantidos os ícones visuais de YouTube, Facebook e Instagram no card lateral.
+- Mantida a inteligência de última transmissão + liturgia Domingo/Quarta.

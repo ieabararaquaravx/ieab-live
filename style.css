@@ -417,3 +417,43 @@ body.quarta .eyebrow { color: var(--gold); }
     width: 112px;
   }
 }
+
+
+/* V3.5 - Header limpo sem chama/logo */
+.hero-logo-corner,
+.logo {
+  display: none !important;
+}
+
+.hero-content {
+  grid-template-columns: 1fr !important;
+  padding-left: 0 !important;
+  min-height: 190px;
+  text-align: left;
+  justify-items: start;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-left: 0;
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    padding-left: 0 !important;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-content {
+    padding-top: 0 !important;
+  }
+}
