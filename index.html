@@ -3,40 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IEAB Live - Ultima Transmissao</title>
+  <title>IEAB Araraquaravx - Culto Online</title>
   <link rel="stylesheet" href="style.css" />
   <script src="config.js"></script>
 </head>
-<body onload="preencherStatusUltimaTransmissao()">
-  <main class="container">
-    <div class="badge">🔴 IEAB Live V2</div>
-    <h1>Assista à última transmissão</h1>
-    <p>
-      Esta página procura automaticamente a última transmissão publicada no canal IEAB Live.
-      Assim, o link principal não fica preso em uma live antiga.
-    </p>
+<body onload="carregarPagina()">
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-content">
+        <div class="logo-mark">IEAB</div>
+        <div>
+          <p class="eyebrow">Igreja Evangélica Avivamento Bíblico</p>
+          <h1>IEAB ARARAQUARAVX</h1>
+          <p class="welcome">Seja bem-vindo</p>
+          <div class="socials">
+            <a class="pill" href="https://www.youtube.com/@IEABLive" target="_blank">▶ @IEABLive</a>
+            <a class="pill" href="https://www.youtube.com/@IEABLive/videos" target="_blank">📺 Transmissões</a>
+            <span class="pill">📍 Araraquara - SP</span>
+          </div>
+        </div>
+      </div>
+    </header>
 
-    <div class="latest-box">
-      <div class="latest-title">Última transmissão detectada:</div>
-      <div id="latest-status" class="latest-meta">Carregando informação...</div>
-      <div id="latest-published" class="latest-meta"></div>
-      <a id="latest-link" class="small-link" href="#" target="_blank">Abrir link detectado em nova aba</a>
-    </div>
+    <section class="main-grid">
+      <article class="card">
+        <div class="card-header">
+          <span class="chip" id="service-day">Detectando liturgia...</span>
+          <h2 id="service-name">Culto Online</h2>
+          <p class="muted">A página identifica a última transmissão e monta os atalhos conforme a liturgia do domingo ou da quarta-feira.</p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" onclick="abrirUltimaTransmissao(0)">🔴 Assistir última transmissão</button>
+          <button class="btn gold" onclick="abrirPalavra()">📖 Palavra / Mensagem</button>
+          <a class="btn navy" href="https://www.youtube.com/@IEABLive/videos" target="_blank">📺 Ver vídeos do canal</a>
+          <a class="btn" href="https://www.youtube.com/@IEABLive" target="_blank">▶ Canal IEAB Live</a>
+        </div>
+        <div id="timeline" class="timeline"></div>
+      </article>
 
-    <div class="grid">
-      <a class="button primary" href="javascript:abrirUltimaTransmissao(0)">🔴 Assistir última transmissão</a>
-      <a class="button secondary" href="mensagem.html">📖 Ir para a mensagem</a>
-      <a class="button" href="louvor.html">🎵 Louvor</a>
-      <a class="button" href="intercessao.html">🙏 Intercessão</a>
-      <a class="button" href="agenda.html">📅 Agenda</a>
-      <a class="button" href="ofertorio.html">🤲 Ofertório</a>
-      <a class="button blue" href="https://www.youtube.com/@IEABLive/streams" target="_blank">📺 Ver transmissões no canal</a>
-      <a class="button" href="https://www.youtube.com/@IEABLive" target="_blank">▶️ Canal IEAB Live</a>
-    </div>
+      <aside class="card latest">
+        <span class="chip">Última transmissão</span>
+        <div id="latest-title" class="latest-title">Carregando...</div>
+        <div id="latest-date" class="latest-date"></div>
+        <a id="latest-link" class="latest-link" href="https://www.youtube.com/@IEABLive/videos" target="_blank">Abrir no YouTube</a>
+        <p class="muted" style="margin-top:18px;">Se a transmissão mais recente ainda não aparecer, aguarde a atualização automática do GitHub Actions ou execute o workflow manualmente.</p>
+      </aside>
+    </section>
 
-    <p class="footer">
-      Atualização automática via GitHub Actions. Canal oficial: <a style="color:#bfdbfe" href="https://www.youtube.com/@IEABLive" target="_blank">@IEABLive</a>
-    </p>
-  </main>
+    <p class="footer-note">IEAB Live V3 • Layout inspirado na identidade visual azul-marinho, dourado e branco das artes da igreja.</p>
+  </div>
 </body>
 </html>

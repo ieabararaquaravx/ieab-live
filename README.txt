@@ -1,52 +1,31 @@
-IEAB Live V2 - Ultima transmissao automatica
+IEAB Live V3 - Layout + Liturgia Inteligente
 
-Objetivo:
-Esta versao evita o problema do link /live abrir uma transmissao antiga.
-A pagina usa o arquivo data/latest.json para abrir sempre a ultima transmissao encontrada no canal @IEABLive.
+O que mudou:
+- Layout novo inspirado nas artes da IEAB: azul-marinho, dourado, branco, cards arredondados e timeline.
+- A pagina detecta se a ultima transmissao foi domingo ou quarta-feira.
+- Domingo usa a liturgia do Culto Celebracoes de Vida.
+- Quarta-feira usa a liturgia do Culto Palavra e Vida.
+- O GitHub Actions atualiza data/latest.json automaticamente a cada 30 minutos.
 
-Como funciona:
-1. O GitHub Actions roda automaticamente a cada 30 minutos.
-2. Ele consulta https://www.youtube.com/@IEABLive/streams usando yt-dlp.
-3. Ele salva o video/transmissao mais recente em data/latest.json.
-4. A pagina index.html le esse arquivo e redireciona os botoes para o video mais recente.
+Como aplicar:
+1. Extraia o ZIP.
+2. Envie todos os arquivos para o repositorio, substituindo os atuais.
+3. Confirme que existe .github/workflows/update-latest.yml.
+4. Va em Actions > Update latest IEAB transmission > Run workflow.
+5. Aguarde ficar verde.
+6. Acesse https://ieabararaquaravx.github.io/ieab-live/
 
-Arquivos principais:
-index.html
-config.js
-style.css
-data/latest.json
-scripts/update_latest.py
-.github/workflows/update-latest.yml
+Observacao:
+Os horarios de quarta-feira nao estavam escritos na imagem, entao foram configurados como offsets aproximados por ordem da liturgia. Para ajustar, edite config.js na secao liturgias.quarta.momentos.
 
-Como instalar no repositorio ja criado:
-1. Extraia este ZIP.
-2. No GitHub, abra o repositorio ieab-live.
-3. Clique em Add file > Upload files.
-4. Envie TODOS os arquivos e pastas deste pacote.
-   Importante: inclua tambem .github/workflows/update-latest.yml e scripts/update_latest.py.
-5. Clique em Commit changes.
-6. Va em Settings > Actions > General.
-7. Em Workflow permissions, marque Read and write permissions.
-8. Salve.
-9. Va na aba Actions.
-10. Clique em Update latest IEAB transmission.
-11. Clique em Run workflow.
-12. Aguarde concluir.
-13. Volte para Code e confira se data/latest.json foi atualizado.
 
-Site:
-https://ieabararaquaravx.github.io/ieab-live/
+V3.1 - Ajuste de detecção por nome real do culto
 
-Links da pagina:
-/                 Pagina inicial
-/mensagem.html    Ultima transmissao + 1h05m
-/louvor.html      Ultima transmissao + 55min
-/intercessao.html Ultima transmissao + 40min
-/agenda.html      Ultima transmissao + 18min
-/ofertorio.html   Ultima transmissao + 25min
-/abertura.html    Ultima transmissao do inicio
-/louvor-final.html Ultima transmissao + 1h50m
+A lógica agora reconhece os padrões reais do YouTube:
+- Data - CULTO CELEBRAÇÕES DE VIDA => domingo
+- Data - CULTO PALAVRA & VIDA => quarta-feira
 
-Observacao importante:
-O redirecionamento para tempo especifico usa &t=segundos no video mais recente.
-Isso funciona melhor em videos gravados/publicados. Em live em andamento, o comportamento depende do DVR do YouTube.
+Exemplo reconhecido:
+12-08-2026 - CULTO PALAVRA & VIDA
+
+Também trata &amp; como &, remove acentos para comparação e usa a data no início do título como fallback.
