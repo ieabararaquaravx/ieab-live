@@ -7,8 +7,8 @@
 
 const IEAB_CONFIG = {
   canal: "https://www.youtube.com/@IEABLive",
-  transmissaoCanal: "https://www.youtube.com/@IEABLive/stream",
-  fallback: "https://www.youtube.com/@IEABLive/stream",
+  transmissaoCanal: "https://www.youtube.com/@IEABLive/streams",
+  fallback: "https://www.youtube.com/@IEABLive/streams",
   latestJson: "data/latest.json",
   timezone: "America/Sao_Paulo",
   liturgias: {
