@@ -16,7 +16,7 @@ const IEAB_CONFIG = {
       nome: "Culto Celebrações de Vida",
       dia: "Domingo",
       inicio: "19h00",
-      descricao: "Liturgia aplicada quando a última transmissão for CULTO CELEBRAÇÕES DE VIDA.",
+      descricao: "",
       badge: "Celebrações de Vida",
       momentos: [
         { key: "abertura", icon: "🙌", hora: "19h00", titulo: "Abertura", subtitulo: "Oração inicial e louvores", offset: 0 },
@@ -32,7 +32,7 @@ const IEAB_CONFIG = {
       nome: "Culto Palavra & Vida",
       dia: "Quarta-feira",
       inicio: "19h30",
-      descricao: "Liturgia aplicada quando a última transmissão for CULTO PALAVRA & VIDA.",
+      descricao: "",
       badge: "Palavra & Vida",
       momentos: [
         { key: "abertura", icon: "📖", hora: "19h30", titulo: "Abertura", subtitulo: "Início do culto Palavra & Vida", offset: 0 },
@@ -190,7 +190,6 @@ async function carregarPagina() {
   document.getElementById('service-badge').textContent = liturgia.badge;
   document.getElementById('service-name').textContent = liturgia.nome;
   document.getElementById('service-day').textContent = `${liturgia.dia} • início ${liturgia.inicio}`;
-  document.getElementById('service-description').textContent = liturgia.descricao;
   document.getElementById('latest-title').textContent = dados.title || 'Última transmissão IEAB Live';
   document.getElementById('latest-date').textContent = formatarDataPublicacao(dados.published) || 'Última transmissão detectada no YouTube';
   document.getElementById('latest-source').textContent = `Origem: ${dados.source || 'data/latest.json'}`;

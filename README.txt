@@ -19,3 +19,13 @@ Como aplicar:
 
 Observacao:
 Os tempos da quarta-feira foram organizados a partir do inicio 19h30 e da ordem da liturgia informada. Se quiser mudar a duracao de cada bloco, edite config.js em IEAB_CONFIG.liturgias.quarta.momentos.
+
+
+V3.3 - Ajustes visuais solicitados
+
+- Mantida a mesma distribuição dos painéis na tela.
+- Substituído o logo circular escrito IEAB pelo arquivo assets/logo-flame.png.
+- Removido o texto técnico da liturgia aplicada.
+- Removido o texto explicativo interno do card lateral.
+- Adicionado bloco com links de YouTube, Facebook e Instagram.
+- Mantida a regra: última transmissão encontrada + liturgia de quarta ou domingo conforme título do culto.

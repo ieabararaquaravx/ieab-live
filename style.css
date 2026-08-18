@@ -307,3 +307,40 @@ body.quarta .eyebrow { color: var(--gold); }
   .timeline-action { display: none; }
   .timeline-copy strong { font-size: 16px; }
 }
+
+
+.social-box {
+  margin-top: 20px;
+  padding: 18px;
+  background: #fffaf2;
+  border: 1px solid rgba(183, 123, 32, .18);
+  border-radius: 18px;
+}
+
+.social-title {
+  color: var(--navy);
+  font-size: 16px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.social-links {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.social-links a {
+  display: block;
+  padding: 11px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 900;
+  color: var(--navy);
+  background: #ffffff;
+  border: 1px solid rgba(6, 27, 58, .10);
+}
+
+.social-links a:hover {
+  background: #f7f0e4;
+}
