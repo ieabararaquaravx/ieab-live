@@ -577,3 +577,22 @@ body.quarta .eyebrow { color: var(--gold); }
     font-size: 19px;
   }
 }
+
+
+/* V4.0 - Título principal com nome real da live e card lateral limpo */
+#service-name {
+  text-transform: none;
+  line-height: 1.18;
+}
+
+#service-day {
+  display: none !important;
+}
+
+.side > .social-box:first-child {
+  margin-top: 0;
+}
+
+.card.side {
+  padding-top: 22px;
+}

@@ -187,11 +187,10 @@ async function carregarPagina() {
   document.body.classList.toggle('quarta', tipo === 'quarta');
   document.body.classList.toggle('domingo', tipo === 'domingo');
 
-  document.getElementById('service-badge').textContent = liturgia.badge;
-  document.getElementById('service-name').textContent = liturgia.nome;
-  document.getElementById('service-day').textContent = `${liturgia.dia} • início ${liturgia.inicio}`;
-  document.getElementById('latest-title').textContent = dados.title || 'Última transmissão IEAB Live';
-  document.getElementById('latest-link').href = dados.url || IEAB_CONFIG.fallback;
+  document.getElementById('service-badge').textContent = 'Última transmissão encontrada';
+  document.getElementById('service-name').textContent = dados.title || 'Última transmissão IEAB Live';
+  const serviceDayEl = document.getElementById('service-day');
+  if (serviceDayEl) serviceDayEl.remove();
   document.getElementById('channel-stream').href = IEAB_CONFIG.transmissaoCanal;
 
   const timeline = document.getElementById('timeline');

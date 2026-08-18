@@ -78,3 +78,12 @@ V3.9 - Link Como chegar corrigido
 
 - Atualizado no index.html o botão 📍 Como chegar para o novo link do Google Maps enviado.
 - Mantidos todos os ajustes anteriores: QR Code Pix maior, HTML corrigido, /streams, botões padronizados e liturgia automática.
+
+
+V4.0 - Título da última live e card lateral limpo
+
+- No painel principal, o selo agora mostra "Última transmissão encontrada".
+- O título principal agora mostra exatamente o nome da última live encontrada no YouTube.
+- Removida a linha "Domingo • início 19h00" / "Quarta-feira • início 19h30".
+- No painel lateral direito, removidos "Última transmissão encontrada", o nome da live e o link "Abrir no YouTube".
+- Mantidos os blocos sociais, Dízimos e Ofertas, QR Code Pix, botões, timeline e inteligência de liturgia.
