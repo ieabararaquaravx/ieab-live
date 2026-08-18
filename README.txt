@@ -29,3 +29,11 @@ V3.3 - Ajustes visuais solicitados
 - Removido o texto explicativo interno do card lateral.
 - Adicionado bloco com links de YouTube, Facebook e Instagram.
 - Mantida a regra: última transmissão encontrada + liturgia de quarta ou domingo conforme título do culto.
+
+
+V3.4 - Ajuste solicitado do logo e ícones sociais
+
+- Mantida a mesma distribuição dos painéis.
+- Logo da chama posicionado no canto inferior esquerdo do banner principal.
+- Removido o encaixe anterior do logo dentro do texto.
+- Links sociais usam arquivos SVG com as marcas visuais de YouTube, Facebook e Instagram.

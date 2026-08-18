@@ -344,3 +344,76 @@ body.quarta .eyebrow { color: var(--gold); }
 .social-links a:hover {
   background: #f7f0e4;
 }
+
+
+/* V3.4 - Logo no canto inferior esquerdo do hero, como referência enviada */
+.hero {
+  min-height: 250px;
+}
+
+.hero-content {
+  grid-template-columns: 1fr;
+  padding-left: 145px;
+  min-height: 190px;
+}
+
+.hero-logo-corner {
+  position: absolute;
+  left: 28px;
+  bottom: -32px;
+  width: 205px;
+  height: auto;
+  z-index: 1;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .24));
+  pointer-events: none;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.logo { display: none; }
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 900px) {
+  .hero-content {
+    padding-left: 100px;
+    text-align: left;
+    justify-items: start;
+  }
+  .hero-logo-corner {
+    left: 12px;
+    bottom: -22px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-content {
+    padding-left: 0;
+    padding-top: 116px;
+    text-align: center;
+    justify-items: center;
+  }
+  .hero-logo-corner {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 14px;
+    bottom: auto;
+    width: 112px;
+  }
+}
