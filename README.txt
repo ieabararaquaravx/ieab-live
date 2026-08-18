@@ -55,3 +55,11 @@ V3.6 - Botões padronizados e link /streams corrigido
 - Padronizados os 4 botões principais com mesma fonte, peso, altura e alinhamento.
 - Botões agora usam estrutura com span.btn-icon e span de texto.
 - Mantida a distribuição de painéis e toda a inteligência de última transmissão/liturgia.
+
+
+V3.7 - Dízimos e Ofertas
+
+- Removidos os textos de data e origem do card "Última transmissão encontrada".
+- Adicionado novo painel "Dízimos e Ofertas" no card lateral.
+- Incluída a imagem assets/pix-dizimos-ofertas.png com o QR Code Pix fornecido.
+- Mantidas as demais funções: última transmissão, liturgia automática, botões padronizados e links sociais.

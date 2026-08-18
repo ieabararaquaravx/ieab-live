@@ -191,8 +191,6 @@ async function carregarPagina() {
   document.getElementById('service-name').textContent = liturgia.nome;
   document.getElementById('service-day').textContent = `${liturgia.dia} • início ${liturgia.inicio}`;
   document.getElementById('latest-title').textContent = dados.title || 'Última transmissão IEAB Live';
-  document.getElementById('latest-date').textContent = formatarDataPublicacao(dados.published) || 'Última transmissão detectada no YouTube';
-  document.getElementById('latest-source').textContent = `Origem: ${dados.source || 'data/latest.json'}`;
   document.getElementById('latest-link').href = dados.url || IEAB_CONFIG.fallback;
   document.getElementById('channel-stream').href = IEAB_CONFIG.transmissaoCanal;
 

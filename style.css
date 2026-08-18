@@ -500,3 +500,31 @@ body.quarta .eyebrow { color: var(--gold); }
     min-height: 54px;
   }
 }
+
+
+/* V3.7 - Painel Dízimos e Ofertas */
+.offering-box {
+  margin-top: 20px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(183, 123, 32, .20);
+  border-radius: 18px;
+  box-shadow: 0 8px 18px rgba(6, 27, 58, .06);
+}
+
+.offering-title {
+  color: var(--navy);
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+
+.pix-image {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  border-radius: 14px;
+  border: 1px solid rgba(6, 27, 58, .10);
+  background: #ffffff;
+}
