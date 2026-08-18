@@ -8,49 +8,55 @@
   <script src="config.js"></script>
 </head>
 <body onload="carregarPagina()">
-  <div class="page-shell">
+  <main class="page">
     <header class="hero">
       <div class="hero-content">
-        <div class="logo-mark">IEAB</div>
+        <div class="logo">IEAB</div>
         <div>
           <p class="eyebrow">Igreja Evangélica Avivamento Bíblico</p>
           <h1>IEAB ARARAQUARAVX</h1>
           <p class="welcome">Seja bem-vindo</p>
-          <div class="socials">
+          <div class="links">
             <a class="pill" href="https://www.youtube.com/@IEABLive" target="_blank">▶ @IEABLive</a>
-            <a class="pill" href="https://www.youtube.com/@IEABLive/videos" target="_blank">📺 Transmissões</a>
+            <a id="channel-stream" class="pill" href="https://www.youtube.com/@IEABLive/stream" target="_blank">📺 Transmissão do canal</a>
             <span class="pill">📍 Araraquara - SP</span>
           </div>
         </div>
       </div>
     </header>
 
-    <section class="main-grid">
+    <section class="grid">
       <article class="card">
         <div class="card-header">
-          <span class="chip" id="service-day">Detectando liturgia...</span>
+          <span id="service-badge" class="badge">Detectando</span>
           <h2 id="service-name">Culto Online</h2>
-          <p class="muted">A página identifica a última transmissão e monta os atalhos conforme a liturgia do domingo ou da quarta-feira.</p>
+          <p id="service-day" class="muted">Carregando liturgia...</p>
+          <p id="service-description" class="muted" style="margin-top:6px"></p>
         </div>
+
         <div class="actions">
           <button class="btn primary" onclick="abrirUltimaTransmissao(0)">🔴 Assistir última transmissão</button>
           <button class="btn gold" onclick="abrirPalavra()">📖 Palavra / Mensagem</button>
-          <a class="btn navy" href="https://www.youtube.com/@IEABLive/videos" target="_blank">📺 Ver vídeos do canal</a>
+          <a class="btn navy" href="https://www.youtube.com/@IEABLive/stream" target="_blank">📺 Transmissão do canal</a>
           <a class="btn" href="https://www.youtube.com/@IEABLive" target="_blank">▶ Canal IEAB Live</a>
         </div>
+
         <div id="timeline" class="timeline"></div>
       </article>
 
-      <aside class="card latest">
-        <span class="chip">Última transmissão</span>
+      <aside class="card side">
+        <span class="badge">Última transmissão encontrada</span>
         <div id="latest-title" class="latest-title">Carregando...</div>
-        <div id="latest-date" class="latest-date"></div>
-        <a id="latest-link" class="latest-link" href="https://www.youtube.com/@IEABLive/videos" target="_blank">Abrir no YouTube</a>
-        <p class="muted" style="margin-top:18px;">Se a transmissão mais recente ainda não aparecer, aguarde a atualização automática do GitHub Actions ou execute o workflow manualmente.</p>
+        <div id="latest-date" class="latest-meta"></div>
+        <div id="latest-source" class="latest-meta"></div>
+        <a id="latest-link" class="side-link" href="https://www.youtube.com/@IEABLive/stream" target="_blank">Abrir no YouTube</a>
+        <p class="muted" style="margin-top:18px">
+          A liturgia abaixo sempre acompanha a última transmissão disponível no YouTube. Se o título for Palavra & Vida, a página usa a liturgia de quarta. Se for Celebrações de Vida, usa a liturgia de domingo.
+        </p>
       </aside>
     </section>
 
-    <p class="footer-note">IEAB Live V3 • Layout inspirado na identidade visual azul-marinho, dourado e branco das artes da igreja.</p>
-  </div>
+    <p class="footer">IEAB Live V3.2 • Última transmissão + liturgia automática por domingo ou quarta-feira.</p>
+  </main>
 </body>
 </html>

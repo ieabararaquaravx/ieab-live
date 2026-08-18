@@ -1,31 +1,21 @@
-IEAB Live V3 - Layout + Liturgia Inteligente
+IEAB Live V3.2 - Ultima transmissao + liturgia correta
 
-O que mudou:
-- Layout novo inspirado nas artes da IEAB: azul-marinho, dourado, branco, cards arredondados e timeline.
-- A pagina detecta se a ultima transmissao foi domingo ou quarta-feira.
-- Domingo usa a liturgia do Culto Celebracoes de Vida.
-- Quarta-feira usa a liturgia do Culto Palavra e Vida.
-- O GitHub Actions atualiza data/latest.json automaticamente a cada 30 minutos.
+Ajustes desta versao:
+- Removidos os links para /videos.
+- Fallback e botao de transmissao do canal apontam para https://www.youtube.com/@IEABLive/stream.
+- A pagina sempre usa a ultima transmissao encontrada pelo data/latest.json.
+- Se o titulo for "Data - CULTO CELEBRACOES DE VIDA", aplica liturgia de domingo.
+- Se o titulo for "Data - CULTO PALAVRA & VIDA", aplica liturgia de quarta-feira.
+- Domingo configurado com inicio as 19h00.
+- Quarta-feira configurado com inicio as 19h30.
 
 Como aplicar:
 1. Extraia o ZIP.
-2. Envie todos os arquivos para o repositorio, substituindo os atuais.
+2. Suba todos os arquivos no repositorio GitHub Pages, substituindo os atuais.
 3. Confirme que existe .github/workflows/update-latest.yml.
-4. Va em Actions > Update latest IEAB transmission > Run workflow.
-5. Aguarde ficar verde.
+4. Rode Actions > Update latest IEAB transmission > Run workflow.
+5. Confira data/latest.json.
 6. Acesse https://ieabararaquaravx.github.io/ieab-live/
 
 Observacao:
-Os horarios de quarta-feira nao estavam escritos na imagem, entao foram configurados como offsets aproximados por ordem da liturgia. Para ajustar, edite config.js na secao liturgias.quarta.momentos.
-
-
-V3.1 - Ajuste de detecção por nome real do culto
-
-A lógica agora reconhece os padrões reais do YouTube:
-- Data - CULTO CELEBRAÇÕES DE VIDA => domingo
-- Data - CULTO PALAVRA & VIDA => quarta-feira
-
-Exemplo reconhecido:
-12-08-2026 - CULTO PALAVRA & VIDA
-
-Também trata &amp; como &, remove acentos para comparação e usa a data no início do título como fallback.
+Os tempos da quarta-feira foram organizados a partir do inicio 19h30 e da ordem da liturgia informada. Se quiser mudar a duracao de cada bloco, edite config.js em IEAB_CONFIG.liturgias.quarta.momentos.

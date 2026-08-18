@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 CHANNEL_URL = "https://www.youtube.com/@IEABLive"
-FALLBACK_URL = "https://www.youtube.com/@IEABLive/videos"
+FALLBACK_URL = "https://www.youtube.com/@IEABLive/stream"
 OUTPUT = Path("data/latest.json")
 
 
@@ -20,14 +20,14 @@ def baixar_url(url):
 
 
 def descobrir_channel_id():
-    html = baixar_url(CHANNEL_URL)
+    pagina = baixar_url(CHANNEL_URL)
     padroes = [
         r'"channelId":"(UC[0-9A-Za-z_-]+)"',
         r'<meta itemprop="channelId" content="(UC[0-9A-Za-z_-]+)"',
         r'"externalId":"(UC[0-9A-Za-z_-]+)"'
     ]
     for padrao in padroes:
-        match = re.search(padrao, html)
+        match = re.search(padrao, pagina)
         if match:
             return match.group(1)
     raise RuntimeError("Nao foi possivel localizar o channel_id do YouTube")
@@ -59,9 +59,6 @@ def extrair_data_do_titulo(title):
 def detectar_tipo_culto(title, published):
     titulo = normalizar_titulo(title)
 
-    # Padroes reais usados no canal:
-    # 12-08-2026 - CULTO PALAVRA & VIDA
-    # 16-08-2026 - CULTO CELEBRACOES DE VIDA
     if 'CULTO PALAVRA' in titulo and 'VIDA' in titulo:
         return 'quarta'
     if 'PALAVRA E VIDA' in titulo:
@@ -94,15 +91,26 @@ def obter_ultimo_video_por_rss(channel_id):
     feed_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
     xml_text = baixar_url(feed_url)
     root = ET.fromstring(xml_text)
-    ns = {"atom": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015"}
+    ns = {
+        "atom": "http://www.w3.org/2005/Atom",
+        "yt": "http://www.youtube.com/xml/schemas/2015"
+    }
     entry = root.find("atom:entry", ns)
     if entry is None:
         raise RuntimeError("RSS do YouTube nao retornou videos")
+
     title = entry.findtext("atom:title", default="Ultima transmissao IEAB Live", namespaces=ns)
     video_id = entry.findtext("yt:videoId", default="", namespaces=ns)
     published = entry.findtext("atom:published", default="", namespaces=ns)
     link = entry.find("atom:link", ns)
-    url = link.get("href") if link is not None and link.get("href") else (f"https://www.youtube.com/watch?v={video_id}" if video_id else FALLBACK_URL)
+
+    if link is not None and link.get("href"):
+        url = link.get("href")
+    elif video_id:
+        url = f"https://www.youtube.com/watch?v={video_id}"
+    else:
+        url = FALLBACK_URL
+
     return {
         "url": url,
         "title": title,
@@ -129,7 +137,7 @@ def main():
     except Exception as erro:
         escrever_json({
             "url": FALLBACK_URL,
-            "title": "Transmissoes IEAB Live",
+            "title": "Transmissao IEAB Live",
             "video_id": "",
             "published": "",
             "updated_at": datetime.now(timezone.utc).isoformat(),

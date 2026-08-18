@@ -1,58 +1,60 @@
-// IEAB Live V3 - Layout + liturgia inteligente
-// A pagina identifica se a ultima transmissao foi domingo ou quarta-feira
-// usando data/latest.json, atualizado pelo GitHub Actions.
+// IEAB Live V3.2 - Ultima transmissao + liturgia por tipo de culto
+// Regras principais:
+// - Sempre usa a ultima transmissao encontrada no YouTube via data/latest.json.
+// - Se o titulo tiver "CULTO CELEBRACOES DE VIDA", usa liturgia de domingo.
+// - Se o titulo tiver "CULTO PALAVRA & VIDA" ou "CULTO PALAVRA E VIDA", usa liturgia de quarta-feira.
+// - Fallback de navegacao do canal: https://www.youtube.com/@IEABLive/stream
 
 const IEAB_CONFIG = {
   canal: "https://www.youtube.com/@IEABLive",
-  fallback: "https://www.youtube.com/@IEABLive/videos",
+  transmissaoCanal: "https://www.youtube.com/@IEABLive/stream",
+  fallback: "https://www.youtube.com/@IEABLive/stream",
   latestJson: "data/latest.json",
   timezone: "America/Sao_Paulo",
   liturgias: {
     domingo: {
       nome: "Culto Celebrações de Vida",
       dia: "Domingo",
-      base: "Transmissão iniciando às 18h30",
-      tema: "celebracao",
+      inicio: "19h00",
+      descricao: "Liturgia aplicada quando a última transmissão for CULTO CELEBRAÇÕES DE VIDA.",
+      badge: "Celebrações de Vida",
       momentos: [
-        { key: "intercessaoAntes", icon: "🙏", hora: "18h30", titulo: "Intercessão antes do culto", subtitulo: "Oração inicial pelos pedidos e pela igreja", offset: 0 },
-        { key: "preparacao", icon: "⏱️", hora: "18h50", titulo: "Momento de preparação", subtitulo: "Preparação para o início do culto", offset: 20 * 60 },
-        { key: "abertura", icon: "🙌", hora: "19h00", titulo: "Abertura", subtitulo: "Oração inicial e louvores", offset: 30 * 60 },
-        { key: "agenda", icon: "📋", hora: "19h18", titulo: "Agenda", subtitulo: "Avisos e programação da semana", offset: 48 * 60 },
-        { key: "ofertorio", icon: "🤲", hora: "19h25", titulo: "Ofertório", subtitulo: "Momento de contribuição", offset: 55 * 60 },
-        { key: "intercessao", icon: "🙏", hora: "19h30", titulo: "Intercessão", subtitulo: "Momento de oração pela igreja e pedidos", offset: 60 * 60 },
-        { key: "louvor", icon: "🎵", hora: "19h45", titulo: "Ministério de Louvor", subtitulo: "Louvores de celebração e adoração", offset: 75 * 60 },
-        { key: "mensagem", icon: "📖", hora: "19h55", titulo: "Mensagem", subtitulo: "Ministração da Palavra", offset: 85 * 60 },
-        { key: "louvorFinal", icon: "🎶", hora: "20h50", titulo: "Louvor final", subtitulo: "Encerramento do culto", offset: 140 * 60 }
+        { key: "abertura", icon: "🙌", hora: "19h00", titulo: "Abertura", subtitulo: "Oração inicial e louvores", offset: 0 },
+        { key: "agenda", icon: "📋", hora: "19h18", titulo: "Agenda", subtitulo: "Avisos e programação da semana", offset: 18 * 60 },
+        { key: "ofertorio", icon: "🤲", hora: "19h25", titulo: "Ofertório", subtitulo: "Momento de contribuição", offset: 25 * 60 },
+        { key: "intercessao", icon: "🙏", hora: "19h30", titulo: "Intercessão", subtitulo: "Momento de oração pela igreja e pedidos", offset: 30 * 60 },
+        { key: "louvor", icon: "🎵", hora: "19h45", titulo: "Ministério de Louvor", subtitulo: "Louvores de celebração e adoração", offset: 45 * 60 },
+        { key: "mensagem", icon: "📖", hora: "19h55", titulo: "Mensagem", subtitulo: "Ministração da Palavra", offset: 55 * 60 },
+        { key: "louvorFinal", icon: "🎶", hora: "20h50", titulo: "Louvor Final", subtitulo: "Encerramento do culto", offset: 110 * 60 }
       ]
     },
     quarta: {
-      nome: "Culto Palavra e Vida",
+      nome: "Culto Palavra & Vida",
       dia: "Quarta-feira",
-      base: "Sequência configurável da liturgia de quarta-feira",
-      tema: "palavra",
+      inicio: "19h30",
+      descricao: "Liturgia aplicada quando a última transmissão for CULTO PALAVRA & VIDA.",
+      badge: "Palavra & Vida",
       momentos: [
-        { key: "intercessaoAntes", icon: "🙏", hora: "Início", titulo: "Intercessão antes do culto", subtitulo: "Momento de oração antes da abertura", offset: 0 },
-        { key: "abertura", icon: "📖", hora: "+15min", titulo: "Abertura", subtitulo: "Início do culto Palavra e Vida", offset: 15 * 60 },
-        { key: "louvor1", icon: "🎵", hora: "+25min", titulo: "1 Louvor", subtitulo: "Ministério de Louvor", offset: 25 * 60 },
-        { key: "agenda", icon: "📋", hora: "+35min", titulo: "Agenda", subtitulo: "Avisos e programação", offset: 35 * 60 },
-        { key: "ofertorio", icon: "🤲", hora: "+45min", titulo: "Ofertório", subtitulo: "Momento de contribuição", offset: 45 * 60 },
-        { key: "louvor2", icon: "🎵", hora: "+55min", titulo: "1 Louvor", subtitulo: "Ministério de Louvor", offset: 55 * 60 },
-        { key: "pregacao", icon: "⛪", hora: "+65min", titulo: "Pregação", subtitulo: "Ministração da Palavra", offset: 65 * 60 },
-        { key: "louvorFinal", icon: "🎶", hora: "+110min", titulo: "Louvor final", subtitulo: "Encerramento", offset: 110 * 60 }
+        { key: "abertura", icon: "📖", hora: "19h30", titulo: "Abertura", subtitulo: "Início do culto Palavra & Vida", offset: 0 },
+        { key: "louvor1", icon: "🎵", hora: "19h40", titulo: "1 Louvor", subtitulo: "Ministério de Louvor", offset: 10 * 60 },
+        { key: "agenda", icon: "📋", hora: "19h50", titulo: "Agenda", subtitulo: "Avisos e programação", offset: 20 * 60 },
+        { key: "ofertorio", icon: "🤲", hora: "20h00", titulo: "Ofertório", subtitulo: "Momento de contribuição", offset: 30 * 60 },
+        { key: "louvor2", icon: "🎵", hora: "20h10", titulo: "1 Louvor", subtitulo: "Ministério de Louvor", offset: 40 * 60 },
+        { key: "pregacao", icon: "⛪", hora: "20h20", titulo: "Pregação", subtitulo: "Ministração da Palavra", offset: 50 * 60 },
+        { key: "louvorFinal", icon: "🎶", hora: "21h10", titulo: "Louvor Final", subtitulo: "Encerramento", offset: 100 * 60 }
       ]
     }
   }
 };
 
 function removerAcentos(texto) {
-  return (texto || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
+  return (texto || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
 function normalizarTitulo(texto) {
-  return removerAcentos(texto || '')
-    .replace(/&amp;/gi, '&')
+  const div = document.createElement('textarea');
+  div.innerHTML = texto || '';
+  return removerAcentos(div.value)
     .replace(/&/g, ' E ')
     .replace(/\s+/g, ' ')
     .trim()
@@ -60,7 +62,6 @@ function normalizarTitulo(texto) {
 }
 
 function extrairDataDoTitulo(titulo) {
-  // Formato esperado no canal: 12-08-2026 - CULTO PALAVRA & VIDA
   const match = (titulo || '').match(/(\d{2})-(\d{2})-(\d{4})/);
   if (!match) return null;
   const [, dd, mm, yyyy] = match;
@@ -79,11 +80,10 @@ function normalizarDataPublicacao(valor) {
 
 function weekdaySaoPaulo(date) {
   if (!date) return null;
-  const short = new Intl.DateTimeFormat('en-US', {
+  return new Intl.DateTimeFormat('en-US', {
     weekday: 'short',
     timeZone: IEAB_CONFIG.timezone
   }).format(date);
-  return short;
 }
 
 function detectarLiturgia(dados) {
@@ -94,25 +94,20 @@ function detectarLiturgia(dados) {
   const tituloOriginal = (dados && dados.title) || '';
   const titulo = normalizarTitulo(tituloOriginal);
 
-  // Padrões reais usados no canal:
-  // 12-08-2026 - CULTO PALAVRA & VIDA
-  // 16-08-2026 - CULTO CELEBRAÇÕES DE VIDA
   if (titulo.includes('CULTO PALAVRA') && titulo.includes('VIDA')) return 'quarta';
   if (titulo.includes('PALAVRA E VIDA')) return 'quarta';
   if (titulo.includes('CULTO CELEBRACOES DE VIDA')) return 'domingo';
   if (titulo.includes('CELEBRACOES DE VIDA')) return 'domingo';
 
-  // Se o título tiver data, usa a data do próprio nome do vídeo.
   const dataTitulo = extrairDataDoTitulo(tituloOriginal);
   const diaTitulo = weekdaySaoPaulo(dataTitulo);
   if (diaTitulo === 'Wed') return 'quarta';
   if (diaTitulo === 'Sun') return 'domingo';
 
-  // Fallback por data de publicação do RSS.
-  const data = normalizarDataPublicacao(dados && dados.published);
-  const dia = weekdaySaoPaulo(data);
-  if (dia === 'Wed') return 'quarta';
-  if (dia === 'Sun') return 'domingo';
+  const dataPublicacao = normalizarDataPublicacao(dados && dados.published);
+  const diaPublicacao = weekdaySaoPaulo(dataPublicacao);
+  if (diaPublicacao === 'Wed') return 'quarta';
+  if (diaPublicacao === 'Sun') return 'domingo';
 
   return 'domingo';
 }
@@ -126,36 +121,33 @@ async function obterUltimaTransmissao() {
   } catch (erro) {
     console.warn('Nao foi possivel ler data/latest.json', erro);
   }
-  return { url: IEAB_CONFIG.fallback, title: 'Transmissões IEAB Live', source: 'fallback' };
+  return { url: IEAB_CONFIG.fallback, title: 'Transmissão IEAB Live', source: 'fallback', service_type: 'domingo' };
 }
 
 function montarUrlComTempo(url, segundos) {
-  if (!url || !segundos || segundos <= 0) return url;
+  if (!url || !segundos || segundos <= 0) return url || IEAB_CONFIG.fallback;
   const separador = url.includes('?') ? '&' : '?';
   return `${url}${separador}t=${segundos}`;
 }
 
 async function abrirUltimaTransmissao(offsetSegundos = 0) {
   const dados = await obterUltimaTransmissao();
-  window.location.href = montarUrlComTempo(dados.url || IEAB_CONFIG.fallback, offsetSegundos);
-}
-
-
-async function abrirPalavra() {
-  const dados = await obterUltimaTransmissao();
-  const tipo = detectarLiturgia(dados);
-  const liturgia = IEAB_CONFIG.liturgias[tipo];
-  const key = tipo === 'quarta' ? 'pregacao' : 'mensagem';
-  const momento = liturgia.momentos.find(m => m.key === key);
-  await abrirUltimaTransmissao(momento ? momento.offset : 0);
+  const urlBase = dados.url || IEAB_CONFIG.fallback;
+  window.location.href = montarUrlComTempo(urlBase, offsetSegundos);
 }
 
 async function abrirMomento(key) {
   const dados = await obterUltimaTransmissao();
   const tipo = detectarLiturgia(dados);
   const liturgia = IEAB_CONFIG.liturgias[tipo];
-  const momento = liturgia.momentos.find(m => m.key === key) || liturgia.momentos.find(m => m.titulo.toLowerCase().includes(key.toLowerCase()));
+  const momento = liturgia.momentos.find(m => m.key === key);
   await abrirUltimaTransmissao(momento ? momento.offset : 0);
+}
+
+async function abrirPalavra() {
+  const dados = await obterUltimaTransmissao();
+  const tipo = detectarLiturgia(dados);
+  await abrirMomento(tipo === 'quarta' ? 'pregacao' : 'mensagem');
 }
 
 function formatarDataPublicacao(valor) {
@@ -163,46 +155,49 @@ function formatarDataPublicacao(valor) {
   if (!data) return '';
   return new Intl.DateTimeFormat('pt-BR', {
     timeZone: IEAB_CONFIG.timezone,
-    weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric'
+    weekday: 'long',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
   }).format(data);
+}
+
+function gerarLinhaLiturgia(momento) {
+  const item = document.createElement('button');
+  item.className = 'timeline-item';
+  item.type = 'button';
+  item.onclick = () => abrirUltimaTransmissao(momento.offset);
+  item.innerHTML = `
+    <span class="timeline-icon">${momento.icon}</span>
+    <span class="timeline-time">${momento.hora}</span>
+    <span class="timeline-copy">
+      <strong>${momento.titulo}</strong>
+      <small>${momento.subtitulo}</small>
+    </span>
+    <span class="timeline-action">Abrir</span>
+  `;
+  return item;
 }
 
 async function carregarPagina() {
   const dados = await obterUltimaTransmissao();
   const tipo = detectarLiturgia(dados);
   const liturgia = IEAB_CONFIG.liturgias[tipo];
-  document.body.classList.add(`tema-${liturgia.tema}`);
 
-  const serviceName = document.getElementById('service-name');
-  const serviceDay = document.getElementById('service-day');
-  const latestTitle = document.getElementById('latest-title');
-  const latestDate = document.getElementById('latest-date');
-  const latestLink = document.getElementById('latest-link');
+  document.body.classList.toggle('quarta', tipo === 'quarta');
+  document.body.classList.toggle('domingo', tipo === 'domingo');
+
+  document.getElementById('service-badge').textContent = liturgia.badge;
+  document.getElementById('service-name').textContent = liturgia.nome;
+  document.getElementById('service-day').textContent = `${liturgia.dia} • início ${liturgia.inicio}`;
+  document.getElementById('service-description').textContent = liturgia.descricao;
+  document.getElementById('latest-title').textContent = dados.title || 'Última transmissão IEAB Live';
+  document.getElementById('latest-date').textContent = formatarDataPublicacao(dados.published) || 'Última transmissão detectada no YouTube';
+  document.getElementById('latest-source').textContent = `Origem: ${dados.source || 'data/latest.json'}`;
+  document.getElementById('latest-link').href = dados.url || IEAB_CONFIG.fallback;
+  document.getElementById('channel-stream').href = IEAB_CONFIG.transmissaoCanal;
+
   const timeline = document.getElementById('timeline');
-
-  if (serviceName) serviceName.textContent = liturgia.nome;
-  if (serviceDay) serviceDay.textContent = `${liturgia.dia} • ${liturgia.base}`;
-  if (latestTitle) latestTitle.textContent = dados.title || 'Última transmissão IEAB Live';
-  if (latestDate) latestDate.textContent = formatarDataPublicacao(dados.published) || 'Data não informada';
-  if (latestLink) latestLink.href = dados.url || IEAB_CONFIG.fallback;
-
-  if (timeline) {
-    timeline.innerHTML = '';
-    liturgia.momentos.forEach((m, idx) => {
-      const item = document.createElement('button');
-      item.className = 'timeline-item';
-      item.type = 'button';
-      item.onclick = () => abrirUltimaTransmissao(m.offset);
-      item.innerHTML = `
-        <span class="timeline-icon">${m.icon}</span>
-        <span class="timeline-time">${m.hora}</span>
-        <span class="timeline-copy">
-          <strong>${m.titulo}</strong>
-          <small>${m.subtitulo}</small>
-        </span>
-        <span class="timeline-arrow">Abrir</span>
-      `;
-      timeline.appendChild(item);
-    });
-  }
+  timeline.innerHTML = '';
+  liturgia.momentos.forEach(momento => timeline.appendChild(gerarLinhaLiturgia(momento)));
 }
