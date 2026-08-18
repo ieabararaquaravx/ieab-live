@@ -166,13 +166,21 @@ h1 {
   border: 0;
   cursor: pointer;
   border-radius: 16px;
-  padding: 15px 14px;
+  padding: 0 16px;
+  min-height: 56px;
   text-decoration: none;
   text-align: center;
-  font-weight: 900;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
   background: #edf2f7;
   color: var(--navy);
   transition: .16s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
 }
 
 .btn:hover {
