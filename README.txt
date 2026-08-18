@@ -72,3 +72,9 @@ V3.8 - HTML corrigido e Pix maior
 - Aumentado o QR Code Pix para melhor leitura em desktop e celular.
 - Removidos definitivamente os textos de data e origem da transmissão.
 - Mantido o link correto do YouTube em /streams.
+
+
+V3.9 - Link Como chegar corrigido
+
+- Atualizado no index.html o botão 📍 Como chegar para o novo link do Google Maps enviado.
+- Mantidos todos os ajustes anteriores: QR Code Pix maior, HTML corrigido, /streams, botões padronizados e liturgia automática.
