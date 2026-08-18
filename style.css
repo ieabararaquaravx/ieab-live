@@ -166,21 +166,13 @@ h1 {
   border: 0;
   cursor: pointer;
   border-radius: 16px;
-  padding: 0 16px;
-  min-height: 56px;
+  padding: 15px 14px;
   text-decoration: none;
   text-align: center;
-  font-size: 15px;
-  font-weight: 800;
-  line-height: 1;
+  font-weight: 900;
   background: #edf2f7;
   color: var(--navy);
   transition: .16s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  white-space: nowrap;
 }
 
 .btn:hover {
@@ -463,5 +455,48 @@ body.quarta .eyebrow { color: var(--gold); }
 @media (max-width: 620px) {
   .hero-content {
     padding-top: 0 !important;
+  }
+}
+
+
+/* V3.6 - Padronização final dos botões principais */
+.actions .btn {
+  border: 0;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 0 16px;
+  min-height: 56px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  transition: .16s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.actions .btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+.actions .btn span:last-child {
+  display: inline-block;
+}
+
+@media (max-width: 620px) {
+  .actions .btn {
+    white-space: normal;
+    min-height: 54px;
   }
 }

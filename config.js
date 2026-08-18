@@ -3,7 +3,7 @@
 // - Sempre usa a ultima transmissao encontrada no YouTube via data/latest.json.
 // - Se o titulo tiver "CULTO CELEBRACOES DE VIDA", usa liturgia de domingo.
 // - Se o titulo tiver "CULTO PALAVRA & VIDA" ou "CULTO PALAVRA E VIDA", usa liturgia de quarta-feira.
-// - Fallback de navegacao do canal: https://www.youtube.com/@IEABLive/stream
+// - Fallback de navegacao do canal: https://www.youtube.com/@IEABLive/streams
 
 const IEAB_CONFIG = {
   canal: "https://www.youtube.com/@IEABLive",
