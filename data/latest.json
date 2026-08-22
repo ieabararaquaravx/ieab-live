@@ -1,10 +1,10 @@
 {
-  "url": "https://www.youtube.com/watch?v=lVWicpRjcTI",
-  "title": "19-08-2026- CULTO PALAVRA & VIDA.",
-  "video_id": "lVWicpRjcTI",
-  "published": "2026-08-20T12:59:00+00:00",
-  "updated_at": "2026-08-21T23:52:20.372324+00:00",
-  "source": "youtube rss",
-  "service_type": "quarta",
-  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ"
+  "url": "https://www.youtube.com/@IEABLive/streamss",
+  "title": "Transmissao IEAB Live",
+  "video_id": "",
+  "published": "",
+  "updated_at": "2026-08-22T03:10:02.122266+00:00",
+  "source": "fallback",
+  "service_type": "domingo",
+  "error": "HTTP Error 500: Internal Server Error"
 }
