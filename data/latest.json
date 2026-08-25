@@ -1,10 +1,10 @@
 {
-  "url": "https://www.youtube.com/watch?v=v94xyKvoEnc",
-  "title": "23-08-2026-CULTO CELEBRAÇÕES DE VIDA.",
-  "video_id": "v94xyKvoEnc",
-  "published": "2026-08-24T13:29:47+00:00",
-  "updated_at": "2026-08-24T23:49:01.237134+00:00",
-  "source": "youtube rss",
+  "url": "https://www.youtube.com/@IEABLive/streamss",
+  "title": "Transmissao IEAB Live",
+  "video_id": "",
+  "published": "",
+  "updated_at": "2026-08-25T03:15:54.620066+00:00",
+  "source": "fallback",
   "service_type": "domingo",
-  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ"
+  "error": "HTTP Error 500: Internal Server Error"
 }
