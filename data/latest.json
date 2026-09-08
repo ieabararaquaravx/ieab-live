@@ -3,11 +3,11 @@
   "title": "02-09-2026 - CULTO PALAVRA & VIDA",
   "video_id": "5rs2PH91BWs",
   "published": "2026-09-02T12:00:00+00:00",
-  "updated_at": "2026-09-08T02:42:08.863350+00:00",
+  "updated_at": "2026-09-08T03:12:11.564613+00:00",
   "source": "youtube streams via yt-dlp",
   "service_type": "quarta",
   "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ",
   "warnings": [
-    "rss: HTTP Error 500: Internal Server Error"
+    "rss: HTTP Error 404: Not Found"
   ]
 }
