@@ -3,8 +3,11 @@
   "title": "27-09-2026-CELEBRAÇÕES DE VIDA",
   "video_id": "fkEmKzlW4zQ",
   "published": "2026-09-27T12:00:00+00:00",
-  "updated_at": "2026-09-29T23:53:35.203604+00:00",
+  "updated_at": "2026-09-30T04:28:48.523029+00:00",
   "source": "youtube streams via yt-dlp",
   "service_type": "domingo",
-  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ"
+  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ",
+  "warnings": [
+    "rss: HTTP Error 404: Not Found"
+  ]
 }
