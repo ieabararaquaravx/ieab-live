@@ -1,10 +1,13 @@
 {
-  "url": "https://www.youtube.com/watch?v=e4B5UI2VoDE",
-  "title": "12-10-2026- CULTO CELEBRAÇÕES DE VIDA",
-  "video_id": "e4B5UI2VoDE",
-  "published": "2026-10-12T12:00:00+00:00",
-  "updated_at": "2026-10-14T21:52:22.299443+00:00",
+  "url": "https://www.youtube.com/watch?v=cTt3_xUOAQ4",
+  "title": "14-10-2026- CULTO PALAVRA & VIDA.",
+  "video_id": "cTt3_xUOAQ4",
+  "published": "2026-10-14T12:00:00+00:00",
+  "updated_at": "2026-10-15T00:18:59.702113+00:00",
   "source": "youtube streams via yt-dlp",
-  "service_type": "domingo",
-  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ"
+  "service_type": "quarta",
+  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ",
+  "warnings": [
+    "rss: HTTP Error 500: Internal Server Error"
+  ]
 }
