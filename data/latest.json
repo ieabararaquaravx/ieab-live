@@ -3,8 +3,11 @@
   "title": "14-10-2026- CULTO PALAVRA & VIDA.",
   "video_id": "cTt3_xUOAQ4",
   "published": "2026-10-14T12:00:00+00:00",
-  "updated_at": "2026-10-15T22:34:53.375762+00:00",
+  "updated_at": "2026-10-16T01:01:34.026573+00:00",
   "source": "youtube streams via yt-dlp",
   "service_type": "quarta",
-  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ"
+  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ",
+  "warnings": [
+    "rss: HTTP Error 404: Not Found"
+  ]
 }
