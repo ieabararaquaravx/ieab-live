@@ -1,10 +1,13 @@
 {
-  "url": "https://www.youtube.com/watch?v=lj50Q2i7U_Q",
-  "title": "01-11-2026 - CULTO CELEBRAÇÕES DE SANTA CEIA",
-  "video_id": "lj50Q2i7U_Q",
-  "published": "2026-11-01T12:00:00+00:00",
-  "updated_at": "2026-11-04T21:25:59.237686+00:00",
+  "url": "https://www.youtube.com/watch?v=AH9YTDzt1J8",
+  "title": "04-11-2026 - CULTO PALAVRA & VIDA",
+  "video_id": "AH9YTDzt1J8",
+  "published": "2026-11-04T12:00:00+00:00",
+  "updated_at": "2026-11-05T01:42:02.488586+00:00",
   "source": "youtube streams via yt-dlp",
-  "service_type": "domingo",
-  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ"
+  "service_type": "quarta",
+  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ",
+  "warnings": [
+    "rss: HTTP Error 404: Not Found"
+  ]
 }
