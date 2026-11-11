@@ -3,8 +3,11 @@
   "title": "08-11-2026 - CULTO CELEBRAÇÕES DE VIDA.",
   "video_id": "kREIAWo37iY",
   "published": "2026-11-08T12:00:00+00:00",
-  "updated_at": "2026-11-11T00:27:32.818736+00:00",
+  "updated_at": "2026-11-11T06:59:07.341194+00:00",
   "source": "youtube streams via yt-dlp",
   "service_type": "domingo",
-  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ"
+  "channel_id": "UChoJJJNDwXsPX4rL8keLTvQ",
+  "warnings": [
+    "rss: HTTP Error 404: Not Found"
+  ]
 }
